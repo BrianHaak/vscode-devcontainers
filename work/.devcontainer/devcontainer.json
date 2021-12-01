@@ -1,0 +1,31 @@
+{
+    "name": "Work Container",
+    "dockerFile": "Dockerfile",
+    "postCreateCommand": "cp ./.devcontainer/.p10k.zsh ~/.p10k.zsh",
+    "containerEnv": {
+        "GITHUB_TOKEN": "<YOUR_TOKEN_HERE>"
+    },
+    "runArgs": [
+        "--init",
+        "--net=host"
+    ],
+    "build": {
+        "args": {
+            "VARIANT": "16",
+            "EXTRA_NODE_VERSION": "14",
+            "GIT_USER": "<YOUR_GIT_USER>",
+            "GIT_EMAIL": "<YOUR_GIT_EMAIL>"
+        }
+    },
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "extensions": [
+        "eamodio.gitlens",
+        "tyriar.vscode-terminal-here",
+        "ms-azuretools.vscode-docker",
+        "amazonwebservices.aws-toolkit-vscode",
+        "github.vscode-pull-request-github",
+        "esbenp.prettier-vscode"
+    ]
+}

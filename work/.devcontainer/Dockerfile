@@ -36,6 +36,13 @@ RUN pip install localstack awscli-local
 RUN su node -c "npm install npm@latest -g"
 RUN su node -c "npm install -g aws-cdk aws-cdk-local lerna bili typescript ts-node eslint husky jest rollup"
 
+# Install Conda
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+RUN bash ~/miniconda.sh -b -p $HOME/miniconda
+# source ~/miniconda/bin/activate
+# conda init zsh
+# conda env create -f environment.yml
+
 # Configure shell
 ARG GIT_USER
 ARG GIT_EMAIL

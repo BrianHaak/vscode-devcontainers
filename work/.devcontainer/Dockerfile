@@ -48,3 +48,5 @@ RUN echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> /root/.zshrc
 # Configure terminal aliases
 RUN echo "alias git_graph='git log --oneline --abbrev-commit --all --graph'" >> /etc/zsh/zshrc
 RUN echo "alias gh_pr='f() { cb=\$(git symbolic-ref --short HEAD) && git push && gh pr create -d -B \$1 -t \"\$1 <- \$cb\" -b \"\"; };f'" >> /etc/zsh/zshrc
+RUN echo "alias b64enc='openssl base64 -e -A <<<'" >> /etc/zsh/zshrc
+RUN echo "alias b64dec='openssl base64 -d -A <<<'" >> /etc/zsh/zshrc
